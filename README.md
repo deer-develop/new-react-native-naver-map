@@ -32,6 +32,8 @@ $ cd ios/ && pod install
 
 [네이버 맵 안드로이드 SDK 문서](https://navermaps.github.io/android-map-sdk/guide-ko/1.html)를 따라 API키와 레포지터리 경로를 추가합니다
 
+**네이버 지도 SDK 3.21.0 버전부터 인증 방식이 변경되었습니다.**
+
 `/android/build.gradle` 파일에 아래와 같이 레포지터리를 추가합니다
 
 ```
@@ -47,13 +49,13 @@ allprojects {
 }
 ```
 
-`/android/app/src/AndroidManifest.xml`에 아래와 같이 추가하고 발급받은 클라이언트 아이디로 바꿔줍니다.
+`/android/app/src/AndroidManifest.xml`에 아래와 같이 추가하고 **네이버 클라우드 플랫폼**에서 발급받은 클라이언트 아이디로 바꿔줍니다.
 ```xml
 <manifest>
     <application>
         <meta-data
-            android:name="com.naver.maps.map.CLIENT_ID"
-            android:value="YOUR_CLIENT_ID_HERE" />
+            android:name="com.naver.maps.map.NCP_CLIENT_ID"
+            android:value="YOUR_NCP_CLIENT_ID_HERE" />
     </application>
 </manifest>
 ```
@@ -62,7 +64,9 @@ allprojects {
 
 [네이버 맵 IOS SDK 문서](https://navermaps.github.io/ios-map-sdk/guide-ko/1.html)를 따라 API키와 레포지터리 경로를 추가합니다.
 
-`info.plist`에 아래와 같이 발급받은 클라이언트 아이디를 추가해줍니다.
+**네이버 지도 SDK 3.21.0 버전부터 인증 방식이 변경되었습니다.**
+
+`info.plist`에 아래와 같이 **네이버 클라우드 플랫폼**에서 발급받은 클라이언트 아이디를 추가해줍니다.
 
 ![image](https://user-images.githubusercontent.com/49827449/66392740-b2fd5f00-ea0b-11e9-8c38-23e604b1009d.png)
 
@@ -72,8 +76,8 @@ allprojects {
 <plist version="1.0">
 <dict>
 ...
-    <key>NMFClientId</key>
-    <string>YOUR_CLIENT_ID_HERE</string>
+    <key>NMFNcpClientId</key>
+    <string>YOUR_NCP_CLIENT_ID_HERE</string>
 ...
 <dict>
 <plist>
