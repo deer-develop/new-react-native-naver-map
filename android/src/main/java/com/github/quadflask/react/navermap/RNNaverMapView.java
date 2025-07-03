@@ -72,7 +72,7 @@ public class RNNaverMapView extends MapView implements OnMapReadyCallback, Naver
                 lastTouch = System.currentTimeMillis();
             }
         });
-        naverMapSdk.flushCache(() -> Log.i("NaverMap", "Map Cache Clean"));
+        naverMapSdk.flushCache(() -> {});
         onInitialized();
     }
 
